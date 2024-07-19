@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loc** | [**\OpenAPI\Client\Model\LocationInner[]**](LocationInner.md) |  |
+**loc** | [**\OpenAPI\Client\Model\MappingRulesInnerValue[]**](MappingRulesInnerValue.md) |  |
 **msg** | **string** |  |
 **type** | **string** |  |
 

@@ -13,12 +13,13 @@ Name | Type | Description | Notes
 **picture** | **string** | URL to picture, photo, or avatar of the user that controls this account. | [optional]
 **is_superuser** | **bool** | Whether or not this user has special access to permit.io organizations |
 **is_onboarding** | **bool** | Whether or not this user is currently onboarding, needs to be replaced by a user journey object |
-**onboarding_step** | [**OnboardingStep**](OnboardingStep.md) | the step the user is currently going through in onboarding |
+**onboarding_step** | [**\OpenAPI\Client\Model\OnboardingStep**](OnboardingStep.md) | the step the user is currently going through in onboarding |
 **created_at** | **\DateTime** | Date and time when the account member was created (ISO_8601 format). |
 **last_login** | **\DateTime** | Last date and time this user logged in (ISO_8601 format). | [optional]
 **last_ip** | **string** | Last IP address from which this user logged in. | [optional] [default to '0.0.0.0']
 **logins_count** | **int** | Total number of logins this user has performed. | [optional] [default to 0]
 **identities** | [**\OpenAPI\Client\Model\IdentityRead[]**](IdentityRead.md) |  |
+**invite** | [**\OpenAPI\Client\Model\InviteRead**](InviteRead.md) |  | [optional]
 **settings** | **object** | Custom permit.io dashboard settings, such as preferred theme, etc. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

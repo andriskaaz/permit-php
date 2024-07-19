@@ -9,8 +9,10 @@ Name | Type | Description | Notes
 **labels** | [**\OpenAPI\Client\Model\OPALabels**](OPALabels.md) |  |
 **timestamp** | **\DateTime** |  |
 **path** | **string** |  |
-**input** | **mixed** |  | [optional]
-**result** | **mixed** |  | [optional]
+**input** | **object** |  |
+**result** | **object** |  |
 **metrics** | [**\OpenAPI\Client\Model\OPAMetrics**](OPAMetrics.md) |  |
+**tenant** | **string** |  |
+**process_time_ms** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

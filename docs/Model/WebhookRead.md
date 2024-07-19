@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**type** | [**\OpenAPI\Client\Model\WebhookType**](WebhookType.md) |  |
 **id** | **string** | Unique id of the webhook |
 **organization_id** | **string** | Unique id of the organization that the webhook belongs to. |
 **project_id** | **string** | Unique id of the project that the webhook belongs to. |

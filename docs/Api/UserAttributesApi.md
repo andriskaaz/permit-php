@@ -80,7 +80,7 @@ try {
 ## `deleteUserAttribute()`
 
 ```php
-deleteUserAttribute($proj_id, $env_id, $attribute_id, $resource_id, $page, $per_page)
+deleteUserAttribute($attribute_id, $proj_id, $env_id, $resource_id, $page, $per_page)
 ```
 
 Delete User Attribute
@@ -104,15 +104,15 @@ $apiInstance = new OpenAPI\Client\Api\UserAttributesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$attribute_id = 'attribute_id_example'; // string | Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$attribute_id = 'attribute_id_example'; // string | Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \"slug\").
 $resource_id = '__user'; // string
 $page = 1; // int | Page number of the results to fetch, starting at 1.
 $per_page = 30; // int | The number of results per page (max 100).
 
 try {
-    $apiInstance->deleteUserAttribute($proj_id, $env_id, $attribute_id, $resource_id, $page, $per_page);
+    $apiInstance->deleteUserAttribute($attribute_id, $proj_id, $env_id, $resource_id, $page, $per_page);
 } catch (Exception $e) {
     echo 'Exception when calling UserAttributesApi->deleteUserAttribute: ', $e->getMessage(), PHP_EOL;
 }
@@ -122,9 +122,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **attribute_id** | **string**| Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **attribute_id** | **string**| Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \&quot;slug\&quot;). | |
 | **resource_id** | **string**|  | [optional] [default to &#39;__user&#39;] |
 | **page** | **int**| Page number of the results to fetch, starting at 1. | [optional] [default to 1] |
 | **per_page** | **int**| The number of results per page (max 100). | [optional] [default to 30] |
@@ -149,7 +149,7 @@ void (empty response body)
 ## `getUserAttribute()`
 
 ```php
-getUserAttribute($proj_id, $env_id, $attribute_id, $resource_id): \OpenAPI\Client\Model\ResourceAttributeRead
+getUserAttribute($attribute_id, $proj_id, $env_id, $resource_id): \OpenAPI\Client\Model\ResourceAttributeRead
 ```
 
 Get User Attribute
@@ -173,13 +173,13 @@ $apiInstance = new OpenAPI\Client\Api\UserAttributesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$attribute_id = 'attribute_id_example'; // string | Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$attribute_id = 'attribute_id_example'; // string | Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \"slug\").
 $resource_id = '__user'; // string
 
 try {
-    $result = $apiInstance->getUserAttribute($proj_id, $env_id, $attribute_id, $resource_id);
+    $result = $apiInstance->getUserAttribute($attribute_id, $proj_id, $env_id, $resource_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserAttributesApi->getUserAttribute: ', $e->getMessage(), PHP_EOL;
@@ -190,9 +190,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **attribute_id** | **string**| Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **attribute_id** | **string**| Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \&quot;slug\&quot;). | |
 | **resource_id** | **string**|  | [optional] [default to &#39;__user&#39;] |
 
 ### Return type
@@ -283,7 +283,7 @@ try {
 ## `updateUserAttribute()`
 
 ```php
-updateUserAttribute($proj_id, $env_id, $attribute_id, $resource_attribute_update, $resource_id): \OpenAPI\Client\Model\ResourceAttributeRead
+updateUserAttribute($attribute_id, $proj_id, $env_id, $resource_attribute_update, $resource_id): \OpenAPI\Client\Model\ResourceAttributeRead
 ```
 
 Update User Attribute
@@ -307,14 +307,14 @@ $apiInstance = new OpenAPI\Client\Api\UserAttributesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$attribute_id = 'attribute_id_example'; // string | Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$attribute_id = 'attribute_id_example'; // string | Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \"slug\").
 $resource_attribute_update = new \OpenAPI\Client\Model\ResourceAttributeUpdate(); // \OpenAPI\Client\Model\ResourceAttributeUpdate
 $resource_id = '__user'; // string
 
 try {
-    $result = $apiInstance->updateUserAttribute($proj_id, $env_id, $attribute_id, $resource_attribute_update, $resource_id);
+    $result = $apiInstance->updateUserAttribute($attribute_id, $proj_id, $env_id, $resource_attribute_update, $resource_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserAttributesApi->updateUserAttribute: ', $e->getMessage(), PHP_EOL;
@@ -325,9 +325,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **attribute_id** | **string**| Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **attribute_id** | **string**| Either the unique id of the attribute, or the URL-friendly key of the attribute (i.e: the \&quot;slug\&quot;). | |
 | **resource_attribute_update** | [**\OpenAPI\Client\Model\ResourceAttributeUpdate**](../Model/ResourceAttributeUpdate.md)|  | |
 | **resource_id** | **string**|  | [optional] [default to &#39;__user&#39;] |
 

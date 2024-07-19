@@ -141,7 +141,7 @@ void (empty response body)
 ## `getResourceInstance()`
 
 ```php
-getResourceInstance($proj_id, $env_id, $instance_id): \OpenAPI\Client\Model\ResourceInstanceRead
+getResourceInstance($proj_id, $env_id, $instance_id, $detailed): \OpenAPI\Client\Model\ResourceInstanceRead
 ```
 
 Get Resource Instance
@@ -168,9 +168,10 @@ $apiInstance = new OpenAPI\Client\Api\ResourceInstancesApi(
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
 $instance_id = 'instance_id_example'; // string | Either the unique id of the resource instance, or the URL-friendly key of the resource instance (i.e: the \"slug\").
+$detailed = false; // bool | If true, will return the relationships of the resource instance.
 
 try {
-    $result = $apiInstance->getResourceInstance($proj_id, $env_id, $instance_id);
+    $result = $apiInstance->getResourceInstance($proj_id, $env_id, $instance_id, $detailed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ResourceInstancesApi->getResourceInstance: ', $e->getMessage(), PHP_EOL;
@@ -184,6 +185,7 @@ try {
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
 | **instance_id** | **string**| Either the unique id of the resource instance, or the URL-friendly key of the resource instance (i.e: the \&quot;slug\&quot;). | |
+| **detailed** | **bool**| If true, will return the relationships of the resource instance. | [optional] [default to false] |
 
 ### Return type
 
@@ -205,7 +207,7 @@ try {
 ## `listResourceInstances()`
 
 ```php
-listResourceInstances($proj_id, $env_id, $page, $per_page): \OpenAPI\Client\Model\ResourceInstanceRead[]
+listResourceInstances($proj_id, $env_id, $tenant, $resource, $detailed, $include_total_count, $page, $per_page, $search): \OpenAPI\Client\Model\ResponseListResourceInstancesV2FactsProjIdEnvIdResourceInstancesGet
 ```
 
 List Resource Instances
@@ -231,11 +233,16 @@ $apiInstance = new OpenAPI\Client\Api\ResourceInstancesApi(
 );
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
+$tenant = 'tenant_example'; // string | The tenant key or id to filter by
+$resource = 'resource_example'; // string | The resource key or id to filter by
+$detailed = false; // bool | If true, will return the relationships of the resource instance.
+$include_total_count = false; // bool | Include total count in response(will make the request slower)
 $page = 1; // int | Page number of the results to fetch, starting at 1.
 $per_page = 30; // int | The number of results per page (max 100).
+$search = 'search_example'; // string | Text search for the object name or key
 
 try {
-    $result = $apiInstance->listResourceInstances($proj_id, $env_id, $page, $per_page);
+    $result = $apiInstance->listResourceInstances($proj_id, $env_id, $tenant, $resource, $detailed, $include_total_count, $page, $per_page, $search);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ResourceInstancesApi->listResourceInstances: ', $e->getMessage(), PHP_EOL;
@@ -248,12 +255,17 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
+| **tenant** | **string**| The tenant key or id to filter by | [optional] |
+| **resource** | **string**| The resource key or id to filter by | [optional] |
+| **detailed** | **bool**| If true, will return the relationships of the resource instance. | [optional] [default to false] |
+| **include_total_count** | **bool**| Include total count in response(will make the request slower) | [optional] [default to false] |
 | **page** | **int**| Page number of the results to fetch, starting at 1. | [optional] [default to 1] |
 | **per_page** | **int**| The number of results per page (max 100). | [optional] [default to 30] |
+| **search** | **string**| Text search for the object name or key | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResourceInstanceRead[]**](../Model/ResourceInstanceRead.md)
+[**\OpenAPI\Client\Model\ResponseListResourceInstancesV2FactsProjIdEnvIdResourceInstancesGet**](../Model/ResponseListResourceInstancesV2FactsProjIdEnvIdResourceInstancesGet.md)
 
 ### Authorization
 

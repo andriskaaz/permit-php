@@ -17,7 +17,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `assignRoleToUser()`
 
 ```php
-assignRoleToUser($proj_id, $env_id, $user_id, $user_role_create): \OpenAPI\Client\Model\RoleAssignmentRead
+assignRoleToUser($user_id, $proj_id, $env_id, $user_role_create): \OpenAPI\Client\Model\RoleAssignmentRead
 ```
 
 Assign Role To User
@@ -41,13 +41,13 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
+$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 $user_role_create = new \OpenAPI\Client\Model\UserRoleCreate(); // \OpenAPI\Client\Model\UserRoleCreate
 
 try {
-    $result = $apiInstance->assignRoleToUser($proj_id, $env_id, $user_id, $user_role_create);
+    $result = $apiInstance->assignRoleToUser($user_id, $proj_id, $env_id, $user_role_create);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->assignRoleToUser: ', $e->getMessage(), PHP_EOL;
@@ -58,9 +58,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 | **user_role_create** | [**\OpenAPI\Client\Model\UserRoleCreate**](../Model/UserRoleCreate.md)|  | |
 
 ### Return type
@@ -147,7 +147,7 @@ try {
 ## `deleteUser()`
 
 ```php
-deleteUser($proj_id, $env_id, $user_id)
+deleteUser($user_id, $proj_id, $env_id)
 ```
 
 Delete User
@@ -171,12 +171,12 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
+$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 
 try {
-    $apiInstance->deleteUser($proj_id, $env_id, $user_id);
+    $apiInstance->deleteUser($user_id, $proj_id, $env_id);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->deleteUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -186,9 +186,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 
 ### Return type
 
@@ -210,7 +210,7 @@ void (empty response body)
 ## `getUser()`
 
 ```php
-getUser($proj_id, $env_id, $user_id): \OpenAPI\Client\Model\UserRead
+getUser($user_id, $proj_id, $env_id): \OpenAPI\Client\Model\UserRead
 ```
 
 Get User
@@ -234,12 +234,12 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
+$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 
 try {
-    $result = $apiInstance->getUser($proj_id, $env_id, $user_id);
+    $result = $apiInstance->getUser($user_id, $proj_id, $env_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getUser: ', $e->getMessage(), PHP_EOL;
@@ -250,9 +250,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 
 ### Return type
 
@@ -274,7 +274,7 @@ try {
 ## `listUsers()`
 
 ```php
-listUsers($proj_id, $env_id, $search, $page, $per_page): \OpenAPI\Client\Model\PaginatedResultUserRead
+listUsers($proj_id, $env_id, $search, $role, $include_resource_instance_roles, $page, $per_page): \OpenAPI\Client\Model\PaginatedResultUserRead
 ```
 
 List Users
@@ -301,11 +301,13 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
 $search = 'search_example'; // string | Text search for the email field
+$role = 'role_example'; // string | Match users with a specific role
+$include_resource_instance_roles = false; // bool | Should add resource instance roles
 $page = 1; // int | Page number of the results to fetch, starting at 1.
 $per_page = 30; // int | The number of results per page (max 100).
 
 try {
-    $result = $apiInstance->listUsers($proj_id, $env_id, $search, $page, $per_page);
+    $result = $apiInstance->listUsers($proj_id, $env_id, $search, $role, $include_resource_instance_roles, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->listUsers: ', $e->getMessage(), PHP_EOL;
@@ -319,6 +321,8 @@ try {
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
 | **search** | **string**| Text search for the email field | [optional] |
+| **role** | **string**| Match users with a specific role | [optional] |
+| **include_resource_instance_roles** | **bool**| Should add resource instance roles | [optional] [default to false] |
 | **page** | **int**| Page number of the results to fetch, starting at 1. | [optional] [default to 1] |
 | **per_page** | **int**| The number of results per page (max 100). | [optional] [default to 30] |
 
@@ -342,7 +346,7 @@ try {
 ## `replaceUser()`
 
 ```php
-replaceUser($proj_id, $env_id, $user_id, $user_create): \OpenAPI\Client\Model\UserRead
+replaceUser($user_id, $proj_id, $env_id, $user_create): \OpenAPI\Client\Model\UserRead
 ```
 
 Replace User
@@ -364,13 +368,13 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
+$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 $user_create = new \OpenAPI\Client\Model\UserCreate(); // \OpenAPI\Client\Model\UserCreate
 
 try {
-    $result = $apiInstance->replaceUser($proj_id, $env_id, $user_id, $user_create);
+    $result = $apiInstance->replaceUser($user_id, $proj_id, $env_id, $user_create);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->replaceUser: ', $e->getMessage(), PHP_EOL;
@@ -381,9 +385,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 | **user_create** | [**\OpenAPI\Client\Model\UserCreate**](../Model/UserCreate.md)|  | |
 
 ### Return type
@@ -406,7 +410,7 @@ try {
 ## `unassignRoleFromUser()`
 
 ```php
-unassignRoleFromUser($proj_id, $env_id, $user_id, $user_role_remove): \OpenAPI\Client\Model\UserRead
+unassignRoleFromUser($user_id, $proj_id, $env_id, $user_role_remove)
 ```
 
 Unassign Role From User
@@ -430,14 +434,13 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
+$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 $user_role_remove = new \OpenAPI\Client\Model\UserRoleRemove(); // \OpenAPI\Client\Model\UserRoleRemove
 
 try {
-    $result = $apiInstance->unassignRoleFromUser($proj_id, $env_id, $user_id, $user_role_remove);
-    print_r($result);
+    $apiInstance->unassignRoleFromUser($user_id, $proj_id, $env_id, $user_role_remove);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->unassignRoleFromUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -447,14 +450,14 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 | **user_role_remove** | [**\OpenAPI\Client\Model\UserRoleRemove**](../Model/UserRoleRemove.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\UserRead**](../Model/UserRead.md)
+void (empty response body)
 
 ### Authorization
 
@@ -472,7 +475,7 @@ try {
 ## `updateUser()`
 
 ```php
-updateUser($proj_id, $env_id, $user_id, $user_update): \OpenAPI\Client\Model\UserRead
+updateUser($user_id, $proj_id, $env_id, $user_update): \OpenAPI\Client\Model\UserRead
 ```
 
 Update User
@@ -496,13 +499,13 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
+$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$user_id = 'user_id_example'; // string | Either the unique id of the user, or the URL-friendly key of the user (i.e: the \"slug\").
 $user_update = new \OpenAPI\Client\Model\UserUpdate(); // \OpenAPI\Client\Model\UserUpdate
 
 try {
-    $result = $apiInstance->updateUser($proj_id, $env_id, $user_id, $user_update);
+    $result = $apiInstance->updateUser($user_id, $proj_id, $env_id, $user_update);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->updateUser: ', $e->getMessage(), PHP_EOL;
@@ -513,9 +516,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **user_id** | **string**| Either the unique id of the user, or the URL-friendly key of the user (i.e: the \&quot;slug\&quot;). | |
 | **user_update** | [**\OpenAPI\Client\Model\UserUpdate**](../Model/UserUpdate.md)|  | |
 
 ### Return type

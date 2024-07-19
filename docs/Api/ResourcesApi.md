@@ -79,7 +79,7 @@ try {
 ## `deleteResource()`
 
 ```php
-deleteResource($proj_id, $env_id, $resource_id)
+deleteResource($resource_id, $proj_id, $env_id)
 ```
 
 Delete Resource
@@ -103,12 +103,12 @@ $apiInstance = new OpenAPI\Client\Api\ResourcesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$resource_id = 'resource_id_example'; // string | Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$resource_id = 'resource_id_example'; // string | Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \"slug\").
 
 try {
-    $apiInstance->deleteResource($proj_id, $env_id, $resource_id);
+    $apiInstance->deleteResource($resource_id, $proj_id, $env_id);
 } catch (Exception $e) {
     echo 'Exception when calling ResourcesApi->deleteResource: ', $e->getMessage(), PHP_EOL;
 }
@@ -118,9 +118,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **resource_id** | **string**| Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **resource_id** | **string**| Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \&quot;slug\&quot;). | |
 
 ### Return type
 
@@ -142,7 +142,7 @@ void (empty response body)
 ## `getResource()`
 
 ```php
-getResource($proj_id, $env_id, $resource_id): \OpenAPI\Client\Model\ResourceRead
+getResource($resource_id, $proj_id, $env_id): \OpenAPI\Client\Model\ResourceRead
 ```
 
 Get Resource
@@ -166,12 +166,12 @@ $apiInstance = new OpenAPI\Client\Api\ResourcesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$resource_id = 'resource_id_example'; // string | Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$resource_id = 'resource_id_example'; // string | Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \"slug\").
 
 try {
-    $result = $apiInstance->getResource($proj_id, $env_id, $resource_id);
+    $result = $apiInstance->getResource($resource_id, $proj_id, $env_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ResourcesApi->getResource: ', $e->getMessage(), PHP_EOL;
@@ -182,9 +182,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **resource_id** | **string**| Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **resource_id** | **string**| Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \&quot;slug\&quot;). | |
 
 ### Return type
 
@@ -206,7 +206,7 @@ try {
 ## `listResources()`
 
 ```php
-listResources($proj_id, $env_id, $include_built_in, $page, $per_page): \OpenAPI\Client\Model\ResourceRead[]
+listResources($proj_id, $env_id, $include_built_in, $include_total_count, $page, $per_page, $search): \OpenAPI\Client\Model\ResponseListResourcesV2SchemaProjIdEnvIdResourcesGet
 ```
 
 List Resources
@@ -233,11 +233,13 @@ $apiInstance = new OpenAPI\Client\Api\ResourcesApi(
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
 $include_built_in = false; // bool | Whether to include or exclude built-in resources, default is False
+$include_total_count = false; // bool | Include total count in response
 $page = 1; // int | Page number of the results to fetch, starting at 1.
 $per_page = 30; // int | The number of results per page (max 100).
+$search = 'search_example'; // string | Text search for the object name or key
 
 try {
-    $result = $apiInstance->listResources($proj_id, $env_id, $include_built_in, $page, $per_page);
+    $result = $apiInstance->listResources($proj_id, $env_id, $include_built_in, $include_total_count, $page, $per_page, $search);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ResourcesApi->listResources: ', $e->getMessage(), PHP_EOL;
@@ -251,12 +253,14 @@ try {
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
 | **include_built_in** | **bool**| Whether to include or exclude built-in resources, default is False | [optional] [default to false] |
+| **include_total_count** | **bool**| Include total count in response | [optional] [default to false] |
 | **page** | **int**| Page number of the results to fetch, starting at 1. | [optional] [default to 1] |
 | **per_page** | **int**| The number of results per page (max 100). | [optional] [default to 30] |
+| **search** | **string**| Text search for the object name or key | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResourceRead[]**](../Model/ResourceRead.md)
+[**\OpenAPI\Client\Model\ResponseListResourcesV2SchemaProjIdEnvIdResourcesGet**](../Model/ResponseListResourcesV2SchemaProjIdEnvIdResourcesGet.md)
 
 ### Authorization
 
@@ -274,7 +278,7 @@ try {
 ## `replaceResource()`
 
 ```php
-replaceResource($proj_id, $env_id, $resource_id, $resource_replace): \OpenAPI\Client\Model\ResourceRead
+replaceResource($resource_id, $proj_id, $env_id, $resource_replace): \OpenAPI\Client\Model\ResourceRead
 ```
 
 Replace Resource
@@ -298,13 +302,13 @@ $apiInstance = new OpenAPI\Client\Api\ResourcesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$resource_id = 'resource_id_example'; // string | Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$resource_id = 'resource_id_example'; // string | Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \"slug\").
 $resource_replace = new \OpenAPI\Client\Model\ResourceReplace(); // \OpenAPI\Client\Model\ResourceReplace
 
 try {
-    $result = $apiInstance->replaceResource($proj_id, $env_id, $resource_id, $resource_replace);
+    $result = $apiInstance->replaceResource($resource_id, $proj_id, $env_id, $resource_replace);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ResourcesApi->replaceResource: ', $e->getMessage(), PHP_EOL;
@@ -315,9 +319,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **resource_id** | **string**| Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **resource_id** | **string**| Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \&quot;slug\&quot;). | |
 | **resource_replace** | [**\OpenAPI\Client\Model\ResourceReplace**](../Model/ResourceReplace.md)|  | |
 
 ### Return type
@@ -340,7 +344,7 @@ try {
 ## `updateResource()`
 
 ```php
-updateResource($proj_id, $env_id, $resource_id, $resource_update): \OpenAPI\Client\Model\ResourceRead
+updateResource($resource_id, $proj_id, $env_id, $resource_update): \OpenAPI\Client\Model\ResourceRead
 ```
 
 Update Resource
@@ -364,13 +368,13 @@ $apiInstance = new OpenAPI\Client\Api\ResourcesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$resource_id = 'resource_id_example'; // string | Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \"slug\").
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$resource_id = 'resource_id_example'; // string | Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \"slug\").
 $resource_update = new \OpenAPI\Client\Model\ResourceUpdate(); // \OpenAPI\Client\Model\ResourceUpdate
 
 try {
-    $result = $apiInstance->updateResource($proj_id, $env_id, $resource_id, $resource_update);
+    $result = $apiInstance->updateResource($resource_id, $proj_id, $env_id, $resource_update);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ResourcesApi->updateResource: ', $e->getMessage(), PHP_EOL;
@@ -381,9 +385,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **resource_id** | **string**| Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \&quot;slug\&quot;). | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **resource_id** | **string**| Either the unique id of the resource, or the URL-friendly key of the resource (i.e: the \&quot;slug\&quot;). | |
 | **resource_update** | [**\OpenAPI\Client\Model\ResourceUpdate**](../Model/ResourceUpdate.md)|  | |
 
 ### Return type

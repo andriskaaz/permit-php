@@ -6,6 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | a more descriptive name for the action | [optional]
 **description** | **string** | optional description string explaining what this action represents in your system | [optional]
+**attributes** | **object** |  | [optional]
+**v1compat_path** | **string** |  | [optional]
+**v1compat_name** | **string** |  | [optional]
 **id** | **string** | Unique id of the action |
 **key** | **string** | action key | [optional]
 

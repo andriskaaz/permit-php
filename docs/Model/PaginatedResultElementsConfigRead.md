@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\OpenAPI\Client\Model\ElementsConfigRead[]**](ElementsConfigRead.md) |  |
+**data** | [**\OpenAPI\Client\Model\ElementsConfigRead[]**](ElementsConfigRead.md) | List of Elements Configs |
 **total_count** | **int** |  |
 **page_count** | **int** |  | [optional] [default to 0]
 

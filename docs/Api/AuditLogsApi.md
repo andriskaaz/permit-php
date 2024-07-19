@@ -11,7 +11,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getDetailedAuditLog()`
 
 ```php
-getDetailedAuditLog($proj_id, $env_id, $log_id): \OpenAPI\Client\Model\DetailedAuditLog
+getDetailedAuditLog($log_id, $proj_id, $env_id): \OpenAPI\Client\Model\DetailedAuditLogModel
 ```
 
 Get detailed audit log
@@ -33,12 +33,12 @@ $apiInstance = new OpenAPI\Client\Api\AuditLogsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$log_id = 'log_id_example'; // string | The unique id of the audit log
 $proj_id = 'proj_id_example'; // string | Either the unique id of the project, or the URL-friendly key of the project (i.e: the \"slug\").
 $env_id = 'env_id_example'; // string | Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \"slug\").
-$log_id = 'log_id_example'; // string | The unique id of the audit log
 
 try {
-    $result = $apiInstance->getDetailedAuditLog($proj_id, $env_id, $log_id);
+    $result = $apiInstance->getDetailedAuditLog($log_id, $proj_id, $env_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuditLogsApi->getDetailedAuditLog: ', $e->getMessage(), PHP_EOL;
@@ -49,13 +49,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **log_id** | **string**| The unique id of the audit log | |
 | **proj_id** | **string**| Either the unique id of the project, or the URL-friendly key of the project (i.e: the \&quot;slug\&quot;). | |
 | **env_id** | **string**| Either the unique id of the environment, or the URL-friendly key of the environment (i.e: the \&quot;slug\&quot;). | |
-| **log_id** | **string**| The unique id of the audit log | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DetailedAuditLog**](../Model/DetailedAuditLog.md)
+[**\OpenAPI\Client\Model\DetailedAuditLogModel**](../Model/DetailedAuditLogModel.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ try {
 ## `listAuditLogs()`
 
 ```php
-listAuditLogs($proj_id, $env_id, $pdp_id, $users, $decision, $resources, $tenant, $action, $timestamp_from, $timestamp_to, $page, $per_page): \OpenAPI\Client\Model\PaginatedResultAuditLog
+listAuditLogs($proj_id, $env_id, $pdp_id, $users, $decision, $resources, $tenant, $action, $timestamp_from, $timestamp_to, $sort_by, $page, $per_page): \OpenAPI\Client\Model\LimitedPaginatedResultAuditLogModel
 ```
 
 List Audit Logs
@@ -105,11 +105,12 @@ $tenant = 'tenant_example'; // string | Filter by tenant
 $action = 'action_example'; // string | Filter by action
 $timestamp_from = 56; // int | Filter by timestamp from
 $timestamp_to = 56; // int | Filter by timestamp to
+$sort_by = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\AuditLogSortKey(); // \OpenAPI\Client\Model\AuditLogSortKey | Sort by column
 $page = 1; // int | Page number of the results to fetch, starting at 1.
 $per_page = 30; // int | The number of results per page (max 100).
 
 try {
-    $result = $apiInstance->listAuditLogs($proj_id, $env_id, $pdp_id, $users, $decision, $resources, $tenant, $action, $timestamp_from, $timestamp_to, $page, $per_page);
+    $result = $apiInstance->listAuditLogs($proj_id, $env_id, $pdp_id, $users, $decision, $resources, $tenant, $action, $timestamp_from, $timestamp_to, $sort_by, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuditLogsApi->listAuditLogs: ', $e->getMessage(), PHP_EOL;
@@ -130,12 +131,13 @@ try {
 | **action** | **string**| Filter by action | [optional] |
 | **timestamp_from** | **int**| Filter by timestamp from | [optional] |
 | **timestamp_to** | **int**| Filter by timestamp to | [optional] |
+| **sort_by** | [**\OpenAPI\Client\Model\AuditLogSortKey**](../Model/.md)| Sort by column | [optional] |
 | **page** | **int**| Page number of the results to fetch, starting at 1. | [optional] [default to 1] |
 | **per_page** | **int**| The number of results per page (max 100). | [optional] [default to 30] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaginatedResultAuditLog**](../Model/PaginatedResultAuditLog.md)
+[**\OpenAPI\Client\Model\LimitedPaginatedResultAuditLogModel**](../Model/LimitedPaginatedResultAuditLogModel.md)
 
 ### Authorization
 

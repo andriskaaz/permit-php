@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\OpenAPI\Client\Model\APIKeyRead[]**](APIKeyRead.md) |  |
+**data** | [**\OpenAPI\Client\Model\APIKeyRead[]**](APIKeyRead.md) | List of Api Keys |
 **total_count** | **int** |  |
 **page_count** | **int** |  | [optional] [default to 0]
 

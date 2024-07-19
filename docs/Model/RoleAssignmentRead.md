@@ -7,7 +7,9 @@ Name | Type | Description | Notes
 **id** | **string** | Unique id of the role assignment |
 **user** | **string** | the user the role is assigned to |
 **role** | **string** | the role that is assigned |
-**tenant** | **string** | the tenant the role is associated with |
+**tenant** | **string** | the tenant the role is associated with | [optional]
+**resource_instance** | **string** | the resource instance the role is associated with | [optional]
+**resource_instance_id** | **string** | Unique id of the resource instance | [optional]
 **user_id** | **string** | Unique id of the user |
 **role_id** | **string** | Unique id of the role |
 **tenant_id** | **string** | Unique id of the tenant |

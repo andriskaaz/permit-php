@@ -13,8 +13,9 @@ Name | Type | Description | Notes
 **updated_at** | **\DateTime** | Date and time when the elements_config was last updated/modified (ISO_8601 format). |
 **is_active** | **bool** |  |
 **name** | **string** | The name of the elements_config |
-**elements_type** | [**ElementsType**](ElementsType.md) | The type of the elements interface, e.g: user management |
+**elements_type** | [**\OpenAPI\Client\Model\ElementsType**](ElementsType.md) | The type of the elements interface, e.g: user management |
 **settings** | [**array<string,\OpenAPI\Client\Model\Settings>**](Settings.md) | Obj with the options of the elements interface, e.g: primary color |
+**email_notifications** | **bool** | Whether to send email notifications to users using your Email Provider you set | [optional] [default to false]
 **roles_to_levels** | **array<string,\OpenAPI\Client\Model\PermissionLevelRoleRead[]>** | Obj with levels as keys and role ids as values |
 **webhook** | [**\OpenAPI\Client\Model\WebhookRead**](WebhookRead.md) |  | [optional]
 
